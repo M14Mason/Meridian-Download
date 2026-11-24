@@ -1,6 +1,7 @@
 // Points each download button at the newest installer and highlights the one for this computer.
 (function () {
-  var REPO = 'M14Mason/Meridian-Download';
+  // Follows whoever hosts the page (works before and after a GitHub transfer).
+  var REPO = (/^([a-z0-9-]+)\.github\.io$/i.exec(location.hostname) || [0, 'batngo'])[1] + '/Meridian-Download';
   var match = { 'mac-arm64': /mac-arm64\.dmg$/, 'mac-x64': /mac-x64\.dmg$/, windows: /windows-setup\.exe$/, linux: /\.AppImage$/ };
   var ua = navigator.userAgent;
   var mine = /Windows/.test(ua) ? 'windows' : /Mac OS X|Macintosh/.test(ua) ? 'mac-arm64' : /Linux/.test(ua) ? 'linux' : '';
